@@ -22,26 +22,40 @@ public class Slaque {
 	}
 	
 	public void incluiUsrCanal(String nome, String email) {
-		//encontra qual usuario incluir
+		if(nome==null|| email==null) {
+			throw new IllegalArgumentException("Parâmetro inválido");
+		}
 		Usuario usr = usuarios.get(email);
 		canais.get(nome).incluirUsr(usr);
 	}
 	
 	public void excluiUsrCanal(String nome, String email) {
+		if(nome==null|| email==null) {
+			throw new IllegalArgumentException("parâmetro inválido");
+		}
 		Usuario usr = usuarios.get(email);
 		canais.get(nome).excluirUsr(usr);
 	}
 	
-	public void mandarMsg(String email, String mensagem) {
-		
+	public void mandarMsg(String email, String nome, String mensagem) {
+		if(email==null|| nome==null|| mensagem==null) {
+			throw new IllegalArgumentException("parâmetro inválido");
+		}
+		canais.get(nome).mandarMsg(usuarios.get(email), mensagem);
 	}
 	
-//	public String listarMsg(String nome) {
-//		
-//	}
-//	
-//	public String listarUsr(String nome) {
-//		
-//	}
+	public String listarMsg(String nome) {
+		if(nome==null) {
+			throw new IllegalArgumentException("Canal inválido");
+		}
+		return canais.get(nome).listarMsg();
+	}
+	
+	public String listarUsr(String nome) {
+		if(nome==null) {
+			throw new IllegalArgumentException("Canal inválido");
+		}
+		return canais.get(nome).listarUsr();
+	}
 	
 }

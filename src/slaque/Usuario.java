@@ -7,8 +7,15 @@ public class Usuario {
 	private String email;
 	
 	public Usuario(String nome, String email) {
+		if(nome==null|| email==null) {
+			throw new IllegalArgumentException("Nome ou email inválidos");
+		}
 		this.nome = nome;
 		this.email = email;
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
 	@Override
@@ -26,9 +33,9 @@ public class Usuario {
 		return Objects.equals(email, other.email) && Objects.equals(nome, other.nome);
 	}
 	
-//	@Override
-//	public String toString() {
-//		
-//	}
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "; Email: "+ email;
+	}
 
 }
