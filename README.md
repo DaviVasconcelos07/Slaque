@@ -29,3 +29,4 @@ Este projeto foi feito com fins educacionais, para praticar conceitos de:
 
 [Davi Vasconcelos](https://github.com/DaviVasconcelos07)
 
+![Representação visual](./images/uml.png)
